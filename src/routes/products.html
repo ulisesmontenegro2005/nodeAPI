@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form  method="post" action="/api/add">
+
+        <label for="nameForm">Name</label>
+        <input name="name" id="nameForm" type="text" required>
+
+        <label for="priceForm">Price</label>
+        <input name="price" id="priceForm" type="number" required>
+
+        <label for="stockForm">Stock</label>
+        <input name="stock" id="stockForm" type="number" required>
+
+        <input type="submit" value="Send product">
+
+    </form>
+</body>
+</html>
