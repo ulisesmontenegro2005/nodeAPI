@@ -20,11 +20,11 @@ async function getData () {
 }
 
 function viewData (arr) {
-    dataContent.innerHTML = arr.map(el => `
-    <div>
-        <p>Name: ${el.name}</p>
-        <p>Price: ${el.price}</p>
-        <p>Stock: ${el.stock}</p>
-    </div>
-    `)
+    dataContent.innerHTML = dataContent.innerHTML + arr.map(el => `
+        <tr>
+            <td class="pProduct"> ${el.name}</td>
+            <td class="pProduct"> ${el.price}</td>
+            <td class="pProduct"> ${el.stock}</td>
+        </tr>
+    `).join('')
 }

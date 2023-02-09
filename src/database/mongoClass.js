@@ -19,11 +19,29 @@ export default class mongo {
         return data;
     }
 
-    async addProduct (name, price, stock) {
+    async addProduct (req, res) {
+        let {name, price, stock} = req.body;
+
         let data = {name, price, stock}
 
         const newProduct = new model.data(data);
 
         await newProduct.save();
+        
+        res.redirect('/')
+    }
+
+    async deleteProduct (req, res) {
+        let { name } = req.body;
+
+        let product = await model.data.find({"name": name})
+
+        if (!product) {
+            return res.json({res: "no se ha encontrado un producto con este nombre"})
+        }
+
+        await model.data.deleteOne({"name": name})
+
+        res.redirect('/')
     }
 }

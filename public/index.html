@@ -4,13 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
     <title> Home </title>
 </head>
 <body>
-    <h1>Data viewer</h1>
-    
-    <main id="dataContent">
+    <h1 class="tittle">Products Database</h1>
 
+
+    <div class="buttons">
+        <form  method="post" action="/api/add">
+            <h2>ADD FORM</h2>
+
+            <label for="nameForm">Name</label>
+            <input placeholder="ex: adidas" name="name" id="nameForm" type="text" required>
+    
+            <label for="priceForm">Price</label>
+            <input placeholder="ex: 123" name="price" id="priceForm" type="number" required>
+    
+            <label for="stockForm">Stock</label>
+            <input placeholder="ex: adidas" name="stock" id="stockForm" type="number" required>
+    
+            <input type="submit" value="Send product">
+    
+        </form>
+        <form action="/api/delete" method="post">
+            <h2>DELETE FORM</h2>
+            <label for="dlt">Name</label>
+            <input name="name" type="text" placeholder="ex: adidas" id="dlt">
+            <input type="submit" value="Delete">
+        </form>
+    </div>
+    
+    <main>
+        <table id="dataContent">
+            <tr>
+                <td>Name</td>
+                <td>Price</td>
+                <td>Stock</td>
+            </tr>
+        </table>
     </main>
 
     <script src="main.js"></script>

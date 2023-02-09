@@ -3,13 +3,6 @@ import mongo from './../database/mongoClass.js';
 const database = new mongo();
 database.connect()
 
-// DIRNAME //
-import path from 'path';
-import { fileURLToPath } from 'url';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-// ------- //   
-
 const routes = express.Router()
 
 routes.get('/', async (req, res) => {
@@ -22,16 +15,8 @@ routes.get('/', async (req, res) => {
     })
 })
 
-routes.get('/add', (req, res) => {
-    res.sendFile(__dirname + '/products.html')
-})
+routes.post('/add', database.addProduct)
 
-routes.post('/add', async (req, res) => {
-    const { name, price, stock } = req.body;
-
-    database.addProduct(name, price, stock);
-
-    res.redirect('/api')
-})
+routes.post('/delete', database.deleteProduct)
 
 export default routes;
