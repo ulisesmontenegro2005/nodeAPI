@@ -9,7 +9,7 @@ app.use(express.static('./public'))
 
 app.use('/api', routes)
 
-const PORT = procces.env.PORT || parseInt(process.argv.slice(2)) || 8080
+const PORT = process.env.PORT || parseInt(process.argv.slice(2)) || 8080
 
 app.listen(PORT, () => {
     console.log(`Server listening in the port: ${PORT}`);
